@@ -22,10 +22,12 @@ Open the local URL Vite prints in your terminal.
 
 Everything you need to edit (unless you're extra) lives in `src/constants.ts`. Update that file to change:
 
-- the date, issue number, and byline
-- the modal title/body/button label
+- the date, issue number, and who the puzzle is "by"
+- the popup title/body/button label
 - the Modern Love title, article title, body, author, and image caption
 - the daily Connections group names and items in `DAY_1`
+
+Also, don't forget to add a picture in `public/`. You can specify the image name you choose in the `src/constants.ts` file.
 
 If you want to change the home screen or game UI text, check the matching components in `src/components/`.
 
