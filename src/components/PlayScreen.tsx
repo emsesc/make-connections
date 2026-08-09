@@ -1,6 +1,7 @@
 import { AspectRatio, Box, Button, Circle, Flex, HStack, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 import { MODAL_ACTION_LABEL, MODAL_BODY, MODAL_TITLE } from '../constants';
 import { chunk, difficultyColor, type Game } from '../game';
+import { FitText } from './FitText';
 import { GameHeader } from './GameHeader';
 
 const PLAY_SCREEN_INTRO = 'Create four groups of four!';
@@ -67,7 +68,9 @@ export const PlayScreen = ({ game, showPrompt, onClosePrompt, onGoToModernLove }
                   rounded="lg"
                   align="center"
                   justify="center"
-                  h="80px"
+                  minH="80px"
+                  px={2}
+                  py={1}
                   w="100%"
                   bg={difficultyColor(group.difficulty)}
                 >
@@ -87,20 +90,20 @@ export const PlayScreen = ({ game, showPrompt, onClosePrompt, onGoToModernLove }
                       w="100%"
                       h="100%"
                       bg="#efefe6"
+                      minW={0}
                       fontSize={{ base: '11px', sm: '12px', md: '14px' }}
                       fontWeight="extrabold"
                       textTransform="uppercase"
                       onClick={() => game.toggleActive(item)}
                       isActive={game.activeItems.includes(item)}
-                      whiteSpace="normal"
                       lineHeight={1.1}
-                      px={2}
+                      px={1}
                       _active={{
                         bg: '#5a594e',
                         color: 'white',
                       }}
                     >
-                      {item}
+                      <FitText>{item}</FitText>
                     </Button>
                   </AspectRatio>
                 ))}
@@ -114,18 +117,21 @@ export const PlayScreen = ({ game, showPrompt, onClosePrompt, onGoToModernLove }
                         key={item}
                         w="150px"
                         h="80px"
+                        minW={0}
                         bg="#efefe6"
                         fontSize="19px"
                         fontWeight="extrabold"
                         textTransform="uppercase"
                         onClick={() => game.toggleActive(item)}
                         isActive={game.activeItems.includes(item)}
+                        lineHeight={1.1}
+                        px={2}
                         _active={{
                           bg: '#5a594e',
                           color: 'white',
                         }}
                       >
-                        {item}
+                        <FitText>{item}</FitText>
                       </Button>
                     ))}
                   </HStack>
